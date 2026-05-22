@@ -1,4 +1,24 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "utfs.io",
+      },
+      {
+        protocol: "https",
+        hostname: "*.ufs.sh", // 👈 ADD THIS — covers the new UploadThing CDN domain
+      },
+    ],
+  },
+  async rewrites() {
+    return {
+      beforeFiles: [],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
